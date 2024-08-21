@@ -9,10 +9,10 @@ html {
 }
 
 body {
-    height: 98vh;
+    height: 97vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;    
+    justify-content: flex-start;    
 }
 
 .header ul li {
@@ -35,6 +35,7 @@ body {
     margin: 25px;
     display: flex;
     flex-direction: column;
+    height: 80vh;
 }
 
 .footer{

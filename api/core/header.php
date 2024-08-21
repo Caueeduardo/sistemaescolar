@@ -18,4 +18,4 @@ echo '
     </div>
 
     <div class="container">';
-//         abre o container
+// abre o container
