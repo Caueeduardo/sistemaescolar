@@ -1,5 +1,4 @@
 <?php
-
 require_once("core/header.php");
 
 echo '<link rel="stylesheet" href="css/style.css">
