@@ -83,3 +83,16 @@
 * Superior
 * Matéria 1º Semestre 2ºSemestre
 
+#### 1.6. Módulo de Turmas/Cursos - Fazer na sala
+- **Associação de Alunos às Turmas**: O sistema deve permitir associar alunos às turmas.
+- **Associação de Professores às Turmas**: O sistema deve permitir associar professores às turmas.
+- **Associação de Alunos aos Cursos**: O sistema deve permitir associar professores às turmas.
+
+
+
+
+
+
+
+
+
