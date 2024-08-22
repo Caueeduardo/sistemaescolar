@@ -1,0 +1,23 @@
+.header ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap:10px;
+}
+
+.header ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all .5s ease-in-out;    
+    background-color: #1e96ff91;
+    color: aliceblue;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.header ul li a:hover {
+    font-weight: bold;
+    background-color: #1ef4ff91;
+    color:black;
+}

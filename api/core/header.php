@@ -1,7 +1,6 @@
 <?php
 
 $request_uri = $_SERVER['REQUEST_URI'];
-
 $url_inicial = "";
 if($request_uri == "/sistemaescolar/api/index.php"){
     $url_inicial = "api/";
@@ -15,6 +14,7 @@ echo '
           <title>Sistema Escolar</title>
           <link rel="stylesheet" href="../css/style.css">
           <link rel="stylesheet" href="../css/button.css">
+          <link rel="stylesheet" href="../css/header.css">
     </head>
 <body class="background-06">
     <div class="header">
@@ -22,8 +22,9 @@ echo '
             <li><a href="../' . $url_inicial . 'index.php">Home</a></li>
             <li><a href="../' . $url_inicial . 'aluno/consulta_aluno.php">Alunos</a></li>
             <li><a href="../' . $url_inicial . 'professor/consulta_professor.php">Professor</a></li>
-            <li><a href="../' . $url_inicial . 'professor/consulta_professor.php">Professor</a></li>
+            <li><a href="../' . $url_inicial . 'escola/consulta_escola.php">Escola</a></li>
         </ul>
+        <hr>
     </div>
 
     <div class="container">';

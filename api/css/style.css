@@ -19,17 +19,6 @@ body {
     list-style: none;
 }
 
-.header ul li a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.header ul li a:hover {
-    font-weight: 100;
-    background-color: #1ef4ff;
-}
-
 /* CLASSE CONTAINER */
 .container{
     margin: 25px;
@@ -38,10 +27,13 @@ body {
     height: 80vh;
 }
 
-.footer{
+.footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 45px;
+    border-top: 1px solid #fff;
+    padding-top: 7px;
 }
 
 #autor{

@@ -26,9 +26,8 @@ $htmlTabelaAlunos = "
     </script>
 ";
 
-$htmlTabelaAlunos .= "<button class='button' type='button' onclick='abreCadastroInclusao()'>Incluir - JAVASCRIPT<button>";
-$htmlTabelaAlunos .= "<button class='button' type='button' onclick='abreCadastroInclusao()'><a href='aluno.php' target='_blank'>Incluir - PHP</a><button>";
-
+// $htmlTabelaAlunos .= "<button class='button' type='button' onclick='abreCadastroInclusao()'>Incluir - JAVASCRIPT<button>";
+$htmlTabelaAlunos .= "<button class='button' type='button' onclick='abreCadastroInclusao()'><a href='aluno.php' target='_blank'>Incluir</a><button>";
 
 $htmlTabelaAlunos .= "<table border='1'>";
 

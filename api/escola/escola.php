@@ -59,9 +59,9 @@ if(isset($_GET["ACAO"])){
 $sHTML = '<div> <link rel="stylesheet" href="../css/formulario.css">';
 
 // FORMULARIO DE CADASTRO DE ALUNOS
-$sHTML .= '<h2 style="text-align:center;">Formulário de Aluno</h2>
+$sHTML .= '<h2 style="text-align:center;">Formulário de Escola</h2>
     <h3>' . $mensagemAlunoNaoEncontrado . '</h3>
-    <form action="cadastrar_aluno.php" method="POST">
+    <form action="cadastrar_escola.php" method="POST">
         <input type="hidden" id="ACAO" name="ACAO" value="' . $acaoFormulario . '">
 
         <label for="codigo">Código:</label>
@@ -114,7 +114,6 @@ $sHTML .= '<h2 style="text-align:center;">Formulário de Aluno</h2>
         <input type="submit" value="Enviar">
     </form>';
 
-// CONSULTA DE ALUNOS
 $sHTML .= '</div>';
 
 echo $sHTML;
