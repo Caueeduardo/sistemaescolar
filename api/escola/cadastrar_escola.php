@@ -45,7 +45,7 @@ function excluir_aluno(){
     file_put_contents("alunos.json", json_encode($arDadosAlunosNovo));
 }
 
-function incluir_aluno(){
+function incluir_escola(){
     $arDadosAlunos = array();
 
     // Primeiro, verifica se existe dados no arquivo json
@@ -57,6 +57,38 @@ function incluir_aluno(){
     }
 
     // Armazenar os dados do aluno atual, num array associativo
+
+    // DADOS DE ENSINO - INCLUIR/ALTERAR ESCOLA
+    $tipo_ensino_creche = 0;
+    $tipo_ensino_basico = 0;
+    $tipo_ensino_fundamental = 0;
+    $tipo_ensino_medio = 0;
+    $tipo_ensino_profissional = 0;
+    $tipo_ensino_tecnico = 0;
+    $tipo_ensino_superior = 0;
+    if(isset($_POST['tipo_ensino_creche'])){
+        $tipo_ensino_creche = 1;        
+    }
+    if(isset($_POST['tipo_ensino_basico'])){
+        $tipo_ensino_basico = 1;        
+    }
+    if(isset($_POST['tipo_ensino_fundamental'])){
+        $tipo_ensino_fundamental = 1;        
+    }
+    if(isset($_POST['tipo_ensino_medio'])){
+        $tipo_ensino_medio = 1;        
+    }
+    if(isset($_POST['tipo_ensino_profissional'])){
+        $tipo_ensino_profissional = 1;        
+    }
+    if(isset($_POST['tipo_ensino_tecnico'])){
+        $tipo_ensino_tecnico = 1;        
+    }
+    if(isset($_POST['tipo_ensino_superior'])){
+        $tipo_ensino_superior = 1;        
+    }
+
+
 
     $aDadosAlunoAtual = array();
     $aDadosAlunoAtual["codigo"] = getProximoCodigo($arDadosAlunos);
@@ -85,37 +117,43 @@ function getProximoCodigo($arDadosAlunos){
 }
 
 // PROCESSAMENTO DA PAGINA
-// echo "<pre>" . print_r($_POST, true) . "</pre>";return true;
+echo "<pre>" . print_r($_POST, true) . "</pre>";return true;
 // echo "<pre>" . print_r($_GET, true) . "</pre>";return true;
 
-// Verificar se esta setado o $_POST
-if(isset($_POST["ACAO"])){
-    $acao = $_POST["ACAO"];
-    if($acao == "INCLUIR"){
-        incluir_aluno();
+function processaDados($pagina){
+    // Verificar se esta setado o $_POST
+    if(isset($_POST["ACAO"])){
+        $acao = $_POST["ACAO"];
+        if($acao == "INCLUIR"){
+            incluir_escola();
 
-        // Redireciona para a pagina de consulta de aluno
-        header('Location: consulta_aluno.php');
-    } else if($acao == "ALTERAR"){        
-        alterar_aluno();
+            // Redireciona para a pagina de consulta de aluno
+            header('Location: consulta_aluno.php');
+        } else if($acao == "ALTERAR"){        
+            alterar_aluno();
 
+            // Redireciona para a pagina de consulta de aluno
+            header('Location: consulta_' . $pagina . '.php');
+        }
+    } else if(isset($_GET["ACAO"])){
+        $acao = $_GET["ACAO"];
+        if($acao == "EXCLUIR"){
+            excluir_aluno();
+            
+            // Redireciona para a pagina de consulta de aluno
+            header('Location: consulta_aluno.php');
+        } else if($acao == "ALTERAR"){
+            $codigoAlunoAlterar = $_GET["codigo"];
+
+            // Redireciona para a pagina de aluno
+            header('Location: aluno.php?ACAO=ALTERAR&codigo=' . $codigoAlunoAlterar);
+        }
+    } else {
         // Redireciona para a pagina de consulta de aluno
         header('Location: consulta_aluno.php');
     }
-} else if(isset($_GET["ACAO"])){
-    $acao = $_GET["ACAO"];
-    if($acao == "EXCLUIR"){
-        excluir_aluno();
-        
-        // Redireciona para a pagina de consulta de aluno
-        header('Location: consulta_aluno.php');
-    } else if($acao == "ALTERAR"){
-        $codigoAlunoAlterar = $_GET["codigo"];
-
-        // Redireciona para a pagina de aluno
-        header('Location: aluno.php?ACAO=ALTERAR&codigo=' . $codigoAlunoAlterar);
-    }
-} else {
-    // Redireciona para a pagina de consulta de aluno
-    header('Location: consulta_aluno.php');
 }
+
+$pagina = "aluno";
+processaDados($pagina);
+    

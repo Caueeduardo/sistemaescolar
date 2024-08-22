@@ -14,19 +14,9 @@ function getAcaoAlterarAluno($codigoAluno){
 
 require_once("../core/header.php");
 
-echo '<h3 style="text-align:center;">CONSULTA DE ALUNO</h3>';
+echo '<h3 style="text-align:center;">CONSULTA DE ESCOLA</h3>';
 
-// JAVASCRIPT
-$htmlTabelaAlunos = "
-    <script>
-        function abreCadastroInclusao(){
-            // alert('Abrindo cadastro de inclusao de aluno...');
-            window.location.href = 'aluno.php';
-        }
-    </script>
-";
-
-$htmlTabelaAlunos .= "<button class='button' type='button' onclick='abreCadastroInclusao()'><a href='escola.php' target='_blank'>Incluir</a><button>";
+$htmlTabelaAlunos = "<button class='button' type='button'><a href='escola.php' target='_blank'>Incluir</a><button>";
 
 
 $htmlTabelaAlunos .= "<table border='1'>";

@@ -2,7 +2,9 @@
 
 $request_uri = $_SERVER['REQUEST_URI'];
 $url_inicial = "";
+$url_inicial_css = "../";
 if($request_uri == "/sistemaescolar/api/index.php"){
+    $url_inicial_css = "api/";
     $url_inicial = "api/";
 }
 
@@ -12,9 +14,9 @@ echo '
     <head>
           <meta charset="UTF-8">
           <title>Sistema Escolar</title>
-          <link rel="stylesheet" href="../css/style.css">
-          <link rel="stylesheet" href="../css/button.css">
-          <link rel="stylesheet" href="../css/header.css">
+          <link rel="stylesheet" href="' . $url_inicial_css . 'css/style.css">
+          <link rel="stylesheet" href="' . $url_inicial_css . 'css/button.css">
+          <link rel="stylesheet" href="' . $url_inicial_css . 'css/header.css">
     </head>
 <body class="background-06">
     <div class="header">
