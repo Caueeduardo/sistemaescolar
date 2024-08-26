@@ -18,11 +18,11 @@ function getDadosEscola($codigoAlterar){
     $tipo_ensino_tecnico = "";
     $tipo_ensino_superior = "";
 
-    $$encontrouEscola = false;
+    $encontrouEscola = false;
     foreach($arDados as $aDados){
         $codigoAtual = $aDados["codigo"];
-        if($codigoAlunoAlterar == $codigoAtual){
-            $$encontrouEscola = true;
+        if($codigoAlterar == $codigoAtual){
+            $encontrouEscola = true;
             $descricao = $aDados["descricao"];
             $cidade = $aDados["cidade"];
             
@@ -157,7 +157,7 @@ $sHTML .= '<h2 style="text-align:center;">Formulário de Escola</h2>
         <input type="text" id="codigoTela" name="codigoTela" value="' . $codigo . '" disabled>
 
         <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" name="descricao" required value="' . $nome . '">
+        <input type="text" id="descricao" name="descricao" required value="' . $descricao . '">
 
         <label for="cidade">Cidade:</label>
         <select id="cidade" name="cidade">
@@ -178,22 +178,22 @@ $sHTML .= '<h2 style="text-align:center;">Formulário de Escola</h2>
             <input type="checkbox" id="tipo_ensino_creche" name="tipo_ensino_creche" ' . $tipo_ensino_creche . '>
             
             <label for="tipo_ensino_basico">Básico:</label>
-            <input type="checkbox" id="tipo_ensino_basico" name="tipo_ensino_basico" ' . $tipo_ensino_creche . '>
+            <input type="checkbox" id="tipo_ensino_basico" name="tipo_ensino_basico" ' . $tipo_ensino_basico . '>
             
             <label for="tipo_ensino_fundamental">Fundamental:</label>
-            <input type="checkbox" id="tipo_ensino_fundamental" name="tipo_ensino_fundamental" ' . $tipo_ensino_creche . '>
+            <input type="checkbox" id="tipo_ensino_fundamental" name="tipo_ensino_fundamental" ' . $tipo_ensino_fundamental . '>
                         
             <label for="tipo_ensino_medio">Médio:</label>
-            <input type="checkbox" id="tipo_ensino_medio" name="tipo_ensino_medio" ' . $tipo_ensino_creche . '>
+            <input type="checkbox" id="tipo_ensino_medio" name="tipo_ensino_medio" ' . $tipo_ensino_medio . '>
             
             <label for="tipo_ensino_profissional">Profissional:</label>
-            <input type="checkbox" id="tipo_ensino_profissional" name="tipo_ensino_profissional" ' . $tipo_ensino_creche . '>
+            <input type="checkbox" id="tipo_ensino_profissional" name="tipo_ensino_profissional" ' . $tipo_ensino_profissional . '>
             
             <label for="tipo_ensino_tecnico">Técnico:</label>
-            <input type="checkbox" id="tipo_ensino_tecnico" name="tipo_ensino_tecnico" ' . $tipo_ensino_creche . '>
+            <input type="checkbox" id="tipo_ensino_tecnico" name="tipo_ensino_tecnico" ' . $tipo_ensino_tecnico . '>
 
             <label for="tipo_ensino_superior">Superior:</label>
-            <input type="checkbox" id="tipo_ensino_superior" name="tipo_ensino_superior" ' . $tipo_ensino_creche . '>
+            <input type="checkbox" id="tipo_ensino_superior" name="tipo_ensino_superior" ' . $tipo_ensino_superior . '>
         <div>
 
         <br>      
