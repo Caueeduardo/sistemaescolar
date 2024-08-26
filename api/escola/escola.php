@@ -12,8 +12,7 @@ function getDadosEscola($codigoAlterar){
 
     $tipo_ensino_creche="";
     $tipo_ensino_basico = "";
-    $tipo_ensino_fundamental = "";
-
+    $tipo_ensino_fundamental = "";    
     $tipo_ensino_medio = "";
     $tipo_ensino_profissional = "";
     $tipo_ensino_tecnico = "";
@@ -131,9 +130,6 @@ if(isset($_GET["ACAO"])){
                 break;
             case 6:
                 $selected_6 = " selected ";
-                break;
-            case 7:
-                $selected_7 = " selected ";
                 break;
         }
 

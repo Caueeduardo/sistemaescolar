@@ -5,7 +5,7 @@ function processaDadosUtil($pagina){
     if(isset($_POST["ACAO"])){
         $acao = $_POST["ACAO"];
         if($acao == "INCLUIR"){
-            incluir_escola();/// PRECISA DE ORIENTACAO OBJETOS!!!
+            incluir_escola();// PRECISA DE ORIENTACAO OBJETOS!!!
 
             // Redireciona para a pagina de consulta
             header('Location: consulta_' . $pagina . '.php');
