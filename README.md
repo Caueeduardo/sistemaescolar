@@ -39,9 +39,10 @@
        * 7 - Ensino Superior
      
 ## Cadastro de Turmas(Curso):
-* Colunas 
+* Colunas
   * codigo da turma
-  * nome do curso/ano da escola...
+  * codigo da Escola - COMBOBOX - DEVE LISTAR UMA LISTA DE SELECT DE ESCOLA
+  * nome do curso/ OU ano da escola...- Exemplo 2 Série - A
   * data inicio do curso
   * data fim do curso
   * status do curso - INICIADO, ANDAMENTO, CONCLUIDO
@@ -61,6 +62,12 @@
 * UNINTER    
   * Analise e Desenvolvimento de Sistemas
 
+## Materia
+* Colunas 
+  * codigo
+  * descricao
+  * Curso - código do curso - COMBOBOX
+
 ## Avaliacao
 * Colunas 
   * codigo
@@ -68,13 +75,6 @@
   * data
   * codigo da materia - combobox de materias
   * status - ABERTO/ANDAMENTO/CONCLUIDO
-## Materia
-* Colunas 
-  * codigo
-  * descricao
-  * Curso - código do curso
-  * Avaliacao - código da Avaliação
-  * Notas - nota entre 1 e 10
 
 ## Boletim Escolar
 * Escola-Fundamental e Medio - Bimestre
@@ -87,6 +87,57 @@
 - **Associação de Alunos às Turmas**: O sistema deve permitir associar alunos às turmas.
 - **Associação de Professores às Turmas**: O sistema deve permitir associar professores às turmas.
 - **Associação de Alunos aos Cursos**: O sistema deve permitir associar professores às turmas.
+
+# NOTAS DOS ALUNOS
+* Formulario de Notas
+* codigo do aluno 
+   * COMBOBOX DE ALUNO - LISTAR DO ARQUIVO DE NOME "ALUNOS.JSON"
+* Código da Materia
+   * COMBOBOX DE MATERIA - LISTAR DO ARQUIVO DE NOME "MATERIAS.JSON"
+* Código da Avaliação
+   * COMBOBOX DE AVALIACAO - LISTAR DO ARQUIVO DE NOME "avaliacao.JSON"
+* Deve gerar o arquivo de nome "NOTAS.JSON"
+* Notas - nota entre 1 e 10 - INFORMAR NA TELA.
+
+  | Aluno      | Avaliação               | Nota| 
+  |------------|-------------------------|-----|                   
+  | Romulo     | 1 - Prova de Matematica | 8.5 |
+  | Adriano    | 1 - Prova de Matematica | 8.5 |
+  | Cauê       | 1 - Prova de Matematica | 8.5 |
+  | Vinícius   | 1 - Prova de Matematica | 8.5 |
+  | Bruna      | 1 - Prova de Matematica | 8.5 |
+  | Helton     | 1 - Prova de Matematica | 8.5 |
+  | Ryan       | 1 - Prova de Matematica | 8.5 |
+
+
+  | Aluno      | Avaliação               | Nota| 
+  |------------|-------------------------|-----|                   
+  | Romulo     | 2 - Prova de Matematica | 6.5 |
+  | Adriano    | 2 - Prova de Matematica | 6.5 |
+  | Cauê       | 2 - Prova de Matematica | 6.5 |
+  | Vinícius   | 2 - Prova de Matematica | 6.5 |
+  | Bruna      | 2 - Prova de Matematica | 6.5 |
+  | Helton     | 2 - Prova de Matematica | 6.5 |
+  | Ryan       | 2 - Prova de Matematica | 6.5 |
+
+
+  | Aluno      | Avaliação               | Nota| 
+  |------------|-------------------------|-----|                   
+  | Romulo     | 3 - Prova de Matematica | 7.5 |
+  | Adriano    | 3 - Prova de Matematica | 7.5 |
+  | Cauê       | 3 - Prova de Matematica | 7.5 |
+  | Vinícius   | 3 - Prova de Matematica | 7.5 |
+  | Bruna      | 3 - Prova de Matematica | 7.5 |
+  | Helton     | 3 - Prova de Matematica | 7.5 |
+  | Ryan       | 3 - Prova de Matematica | 7.5 |
+
+
+## Media Calcular no PHP
+* MEDIA = SOMA DAS 3 NOTAS DIVIDIDO POR 3.
+
+# AVALIAR PRA INTEGRAR BOLETIM COM AS NOTAS - PROFESSOR
+* Arquivo "notas.json"
+
 
 
 

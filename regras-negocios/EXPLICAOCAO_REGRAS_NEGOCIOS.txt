@@ -1,0 +1,69 @@
+
+Formulario Turmas(Curso) 
+select de "status" do formulario
+<select id="statuscurso" name="statuscurso">
+	<option value="INICIADO" ' . $selected_1 . '>INICIADO</option>
+	<option value="ANDAMENTO" ' . $selected_2 . '>ANDAMENTO</option>
+	<option value="CONCLUIDO" ' . $selected_2 . '>CONCLUIDO</option>
+</select>
+
+select de "periodo" do formulario Avaliacao
+<select id="periodocurso" name="periodocurso">
+	<option value="ABERTO" ' . $selected_1 . '>ABERTO</option>
+	<option value="ANDAMENTO" ' . $selected_2 . '>ANDAMENTO</option>
+	<option value="CONCLUIDO" ' . $selected_2 . '>CONCLUIDO</option>
+</select>
+
+Formulario Avaliacao
+<select id="materia" name="materia">
+	<option value="1" ' . $selected_1 . '>Jovem Programador</option>
+	<option value="2" ' . $selected_2 . '>Ingles</option>
+</select>
+
+ ABERTO/ANDAMENTO/CONCLUIDO
+ 
+select de status do formulario Avaliacao
+<select id="statusavaliacao" name="statusavaliacao">
+	<option value="ABERTO" ' . $selected_1 . '>ABERTO</option>
+	<option value="ANDAMENTO" ' . $selected_2 . '>ANDAMENTO</option>
+	<option value="CONCLUIDO" ' . $selected_2 . '>CONCLUIDO</option>
+</select>
+
+Formulario de Notas
+PROFESSSOR - codigo do aluno- COMBOBOX DE ALUNO - LISTAR DO ARQUIVO DE NOME "ALUNOS.JSON"
+COMBOBOX DE MATERIA codigo da Materia
+COMBOBOX DE AVALIACAO - Avaliacao - código da Avaliação
+
+Notas - nota entre 1 e 10 - INFORMAR NA TELA.
+
+Aluno -   Avaliacao                 Nota 
+Romulo     1 - Prova de Matematica  8.5
+Adriano    1 - Prova de Matematica  8.5
+Cauê       1 - Prova de Matematica  8.5
+Vinícius   1 - Prova de Matematica  8.5
+Bruna      1 - Prova de Matematica  8.5
+Helton     1 - Prova de Matematica  8.5
+Ryan       1 - Prova de Matematica  8.5
+
+Aluno -   Avaliacao                 Nota 
+Romulo     2 - Prova de Matematica  5.5
+Adriano    2 - Prova de Matematica  5.5
+Cauê       2 - Prova de Matematica  5.5
+Vinícius   2 - Prova de Matematica  5.5
+Bruna      2 - Prova de Matematica  5.5
+Helton     2 - Prova de Matematica  5.5
+Ryan       2 - Prova de Matematica  5.5
+
+Aluno -   Avaliacao                 Nota 
+Romulo     3 - Prova de Matematica  7.5
+Adriano    3 - Prova de Matematica  7.5
+Cauê       3 - Prova de Matematica  7.5
+Vinícius   3 - Prova de Matematica  7.5
+Bruna      3 - Prova de Matematica  7.5
+Helton     3 - Prova de Matematica  7.5
+Ryan       3 - Prova de Matematica  7.5
+
+Media Calcular no PHP
+MEDIA = SOMA DAS 3 NOTAS DIVIDIDO POR 3.
+
+#AVALIAR PRA INTEGRAR BOLETIM COM AS NOTAS - PROFESSOR
