@@ -103,6 +103,7 @@ if(isset($_GET["ACAO"])){
         list(
             $descricao,
             $cidade,
+
             $tipo_ensino_creche,
             $tipo_ensino_basico,
             $tipo_ensino_fundamental,

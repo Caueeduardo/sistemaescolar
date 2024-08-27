@@ -50,6 +50,7 @@ function excluir_registro($pagina){
     $arDadosNovo = array();
     foreach($arDados as $aDados){
         $codigoAtual = $aDados["codigo"];
+        // nao adiciona o codigo que deve ser excluido no array
         if($codigoExcluir == $codigoAtual){
             continue;
         }
