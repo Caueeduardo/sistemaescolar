@@ -29,6 +29,7 @@ echo '
             <li><a href="../' . $url_inicial . 'aluno/consulta_aluno.php">Alunos</a></li>
             <li><a href="../' . $url_inicial . 'professor/consulta_professor.php">Professor</a></li>
             <li><a href="../' . $url_inicial . 'escola/consulta_escola.php">Escola</a></li>
+            <li><a href="../' . $url_inicial . 'turma/consulta_turma.php">Turma</a></li>
             <li><a href="../' . $url_inicial . 'geradorboletim/index.html">Gerador Boletim</a></li>
         </ul>
         <hr>

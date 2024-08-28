@@ -27,7 +27,9 @@ $htmlTabelaAlunos = "
 ";
 
 // $htmlTabelaAlunos .= "<button class='button' type='button' onclick='abreCadastroInclusao()'>Incluir - JAVASCRIPT<button>";
-$htmlTabelaAlunos .= "<button class='button' type='button' onclick='abreCadastroInclusao()'><a href='aluno.php' target='_blank'>Incluir</a><button>";
+
+// $htmlTabelaAlunos .= "<a href='aluno.php' target='_blank'><button class='button' type='button'>Incluir<button></a>";
+$htmlTabelaAlunos .= "<a href='aluno.php'><button class='button' type='button'>Incluir<button></a>";
 
 $htmlTabelaAlunos .= "<table border='1'>";
 

@@ -9,9 +9,9 @@ select de "status" do formulario
 
 select de "periodo" do formulario Avaliacao
 <select id="periodocurso" name="periodocurso">
-	<option value="ABERTO" ' . $selected_1 . '>ABERTO</option>
-	<option value="ANDAMENTO" ' . $selected_2 . '>ANDAMENTO</option>
-	<option value="CONCLUIDO" ' . $selected_2 . '>CONCLUIDO</option>
+	<option value="Matutino" ' . $selected_status_periodo_1 . '>Matutino</option>
+	<option value="Vespertino" ' . $selected_status_periodo_2 . '>Vespertino</option>
+	<option value="Noturno" ' . $selected_status_periodo_3 . '>Noturno</option>
 </select>
 
 Formulario Avaliacao

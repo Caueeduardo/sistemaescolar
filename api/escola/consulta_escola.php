@@ -41,7 +41,7 @@ require_once("../core/header.php");
 
 echo '<h3 style="text-align:center;">CONSULTA DE ESCOLA</h3>';
 
-$htmlTabelaEscolas = "<button class='button' type='button'><a href='escola.php' target='_blank'>Incluir</a><button>";
+$htmlTabelaEscolas = "<a href='escola.php' target='_blank'><button class='button' type='button'>Incluir<button></a>";
 
 
 $htmlTabelaEscolas .= "<table border='1'>";
