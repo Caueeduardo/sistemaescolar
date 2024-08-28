@@ -146,6 +146,17 @@ if(isset($_GET["ACAO"])){
 }
 
 $sHTML = '<div> <link rel="stylesheet" href="../css/formulario.css">';
+$sHTML .= '
+<script>
+    function pesquisaCep(){
+        const cep = document.querySelector("#cep").value;
+        const method = "GET";
+        const rota = "https://brasilapi.com.br/api/cep/v1/" + cep;
+        callApi(method, rota, function (data) {
+            console.log(data);
+        });
+    }
+</script>';
 
 // FORMULARIO DE CADASTRO DE ALUNOS
 $sHTML .= '<h2 style="text-align:center;">Formulário de Escola</h2>
@@ -159,6 +170,11 @@ $sHTML .= '<h2 style="text-align:center;">Formulário de Escola</h2>
 
         <label for="descricao">Descrição:</label>
         <input type="text" id="descricao" name="descricao" required value="' . $descricao . '">
+        
+        <div style="display:none;"> <!--USAR DISPLAY BLOCK PARA MOSTRAR -->       
+            <button onclick="pesquisaCep()">Pesquisar CEP</button>
+            <input type="text" id="cep">
+        </div>
 
         <label for="cidade">Cidade:</label>
         <select id="cidade" name="cidade">

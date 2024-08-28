@@ -1,8 +1,13 @@
 <?php
 function alterar_turma(){
-    $codigoTurmaAlterar = $_POST["codigo"];
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
+
+    $codigoTurmaAlterar = $_POST["codigo"];    
+    $escola       = $_POST["escola"];
+    $nome         = $_POST["nome"];
+    $datainicio   = $_POST["datainicio"];
+    $datafim      = $_POST["datafim"];
+    $statuscurso  = $_POST["statuscurso"];
+    $periodocurso = $_POST["periodocurso"];
     
     $dadosTurmas = @file_get_contents("turmas.json");
     $arDadosTurmas = json_decode($dadosTurmas, true);
@@ -13,7 +18,11 @@ function alterar_turma(){
 
         if($codigoTurmaAlterar == $codigoAtual){
             $aDados["nome"] = $nome;
-            $aDados["email"] = $email;
+            $aDados["escola"] = (int)$escola;
+            $aDados["datainicio"] = $datainicio;
+            $aDados["datafim"] = $datafim;
+            $aDados["statuscurso"] = $statuscurso;
+            $aDados["periodocurso"] = $periodocurso;
         }
 
         $arDadosTurmasNovo[] = $aDados;
@@ -33,7 +42,6 @@ function excluir_turma(){
     foreach($arDadosTurmas as $aDados){
         $codigoAtual = $aDados["codigo"];
         if($codigoTurmaExcluir == $codigoAtual){
-            // ignora e vai para o proximo registro
             continue;
         }
 
@@ -52,27 +60,31 @@ function incluir_turma(){
     $dadosturmas = @file_get_contents("turmas.json");
     if($dadosturmas){
         // transforma os dados lidos em ARRAY, que estavam em JSON
-        $arDadosturmas = json_decode($dadosturmas, true);
+        $arDadosTurmas = json_decode($dadosturmas, true);
     }
 
     // Armazenar os dados do turma atual, num array associativo
 
-    $aDadosturmaAtual = array();
-    $aDadosturmaAtual["codigo"] = getProximoCodigo($arDadosturmas);
-    $aDadosturmaAtual["nome"] = $_POST["nome"];
-    $aDadosturmaAtual["email"] = $_POST["email"];
-    $aDadosturmaAtual["senha"] = password_hash($_POST["senha"], PASSWORD_DEFAULT);
+    $aDadosTurmaAtual = array();
+    $aDadosTurmaAtual["codigo"] = getProximoCodigo($arDadosTurmas);
 
+    $aDadosTurmaAtual["escola"]       = $_POST["escola"];
+    $aDadosTurmaAtual["nome"]         = $_POST["nome"];
+    $aDadosTurmaAtual["datainicio"]   = $_POST["datainicio"];
+    $aDadosTurmaAtual["datafim"]      = $_POST["datafim"];
+    $aDadosTurmaAtual["statuscurso"]  = $_POST["statuscurso"];
+    $aDadosTurmaAtual["periodocurso"] = $_POST["periodocurso"];
+    
     // Pega os dados atuais do turma e armazena no array que foi lido
-    $arDadosturmas[] = $aDadosturmaAtual;
+    $arDadosTurmas[] = $aDadosTurmaAtual;
 
     // Gravar os dados no arquivo
-    file_put_contents("turmas.json", json_encode($arDadosturmas));
+    file_put_contents("turmas.json", json_encode($arDadosTurmas));
 }
 
-function getProximoCodigo($arDadosturmas){
+function getProximoCodigo($arDadosTurmas){
     $ultimoCodigo = 0;
-    foreach($arDadosturmas as $aDados){
+    foreach($arDadosTurmas as $aDados){
         $codigoAtual = $aDados["codigo"];
 
         if($codigoAtual > $ultimoCodigo){
@@ -83,9 +95,7 @@ function getProximoCodigo($arDadosturmas){
     return $ultimoCodigo + 1;
 }
 
-// PROCESSAMENTO DA PAGINA
 // echo "<pre>" . print_r($_POST, true) . "</pre>";return true;
-// echo "<pre>" . print_r($_GET, true) . "</pre>";return true;
 
 // Verificar se esta setado o $_POST
 if(isset($_POST["ACAO"])){
@@ -113,7 +123,7 @@ if(isset($_POST["ACAO"])){
         $codigoTurmaAlterar = $_GET["codigo"];
         
         // Redireciona para a pagina de turma
-        header('Location: turma.php?ACAO=ALTERAR&codigo=' . $codigoturmaAlterar);
+        header('Location: turma.php?ACAO=ALTERAR&codigo=' . $codigoTurmaAlterar);
     }
 } else {
     // Redireciona para a pagina de consulta de turma

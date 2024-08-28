@@ -1,7 +1,7 @@
 <?php
 require_once("../core/header.php");
 
-function getComboEscola(){
+function getComboEscola($codigoEscola = false){
     $arDadosEscolas = array();
     $dadosEscolas = @file_get_contents("../escola/escola.json");
     if($dadosEscolas){
@@ -11,25 +11,34 @@ function getComboEscola(){
 
     $html = '<div style="display:flex;gap:5px;flex-direction:row;">';
 
-    $html .= '  <label for="escola">Escola 10:</label>';
+    $html .= '  <label for="escola">Escola:</label>';
     $html .= '  <select id="escola" name="escola">';
     $html .= '    <option value="0">Selecione</option>';
 
     //  preencher com php - mais options de ESCOLA
     foreach($arDadosEscolas as $aDados){
-        $html .= '<option value="'. $aDados["codigo"] .'">' . $aDados["descricao"] . '</option>';
+        $selected = "";
+        if($codigoEscola == $aDados["codigo"]){
+            $selected = " selected ";                    
+        }
+
+        $html .= '<option value="'. $aDados["codigo"] .'" ' . $selected .'>' . $aDados["descricao"] . '</option>';
     }
 
     $html .= '</select>';
-
     $html .= '</div>';
 
     return $html;
 }
 
 function getDadosTurma($codigoTurmaAlterar){
+    $codigo = "";
+    $escola = "";
     $nome = "";
-    $email = "";
+    $datainicio = "";
+    $datafim = "";
+    $status = "";
+    $periodo = "";
 
     $dadosTurmas = @file_get_contents("turmas.json");
     $arDadosTurmas = json_decode($dadosTurmas, true);
@@ -38,18 +47,31 @@ function getDadosTurma($codigoTurmaAlterar){
     foreach($arDadosTurmas as $aDados){
         $codigoAtual = $aDados["codigo"];
         if($codigoTurmaAlterar == $codigoAtual){
-            $encontrouTurma = true;
-            $nome = $aDados["nome"];
-            $email = $aDados["email"];
+            $encontrouTurma = true;            
+            $escola       = $aDados["escola"];
+            $nome         = $aDados["nome"];
+            $datainicio   = $aDados["datainicio"];
+            $datafim      = $aDados["datafim"];
+            $statuscurso  = $aDados["statuscurso"];
+            $periodocurso = $aDados["periodocurso"];
             break;
         }
     }
 
-    return array($nome, $email, $encontrouTurma);
+    return array(
+        $codigoTurmaAlterar,
+        $escola,
+        $nome,
+        $datainicio,
+        $datafim,
+        $status,
+        $periodo, 
+        $encontrouTurma
+    );
 }
 
 // Verificar se existe acao
-$codigo = "";
+$codigoTurma = "";
 $escola = "";
 $nome = "";
 $datainicio = "";
@@ -69,6 +91,7 @@ $selected_status_periodo_1 = "";
 $selected_status_periodo_2 = "";
 $selected_status_periodo_3 = "";
 
+$codigoEscola = false;
 $acaoFormulario = "INCLUIR";
 if(isset($_GET["ACAO"])){
     $acao = $_GET["ACAO"];
@@ -76,10 +99,20 @@ if(isset($_GET["ACAO"])){
         $acaoFormulario = "ALTERAR";
 
         $display = "none;";
-        $codigo = $_GET["codigo"];
-        list($nome, $email, $encontrouTurma) = getDadosTurma($codigo);
+        $codigoTurma = $_GET["codigo"];
+        
+        list($codigoTurma,
+            $escola,
+            $nome,
+            $datainicio,
+            $datafim,
+            $status,
+            $periodo, 
+            $encontrouTurma) = getDadosTurma($codigoTurma);
 
         if($encontrouTurma){
+            $codigoEscola = $escola;
+
             // Limpa a mensagem de erro
             $mensagemTurmaNaoEncontrado = "";
         } else {
@@ -90,18 +123,9 @@ if(isset($_GET["ACAO"])){
     }
 }
 
-$sHTML = '<div> <link rel="stylesheet" href="../css/formulario.css">';
+$sHTML = '<div><link rel="stylesheet" href="../css/formulario.css">';
 
-$codigo = "";
-$escola = ""; // COMBO DE ESCOLA DO ARQUIVO "ESCOLA.JSON"
-$nome = "";
-$datainicio = "";
-$datafim = "";
-
-$status = ""; // combo de status - fixo
-$periodo = "";// combo de periodo - fixo
-
-$comboEscola = getComboEscola();
+$comboEscola = getComboEscola($codigoEscola);
 
 // FORMULARIO DE CADASTRO DE TURMAS
 $sHTML .= '<h2 style="text-align:center;">Formulário de Turma</h2>
@@ -110,13 +134,12 @@ $sHTML .= '<h2 style="text-align:center;">Formulário de Turma</h2>
         <input type="hidden" id="ACAO" name="ACAO" value="' . $acaoFormulario . '">
 
         <label for="codigo">Código:</label>
-        <input type="hidden" id="codigo" name="codigo" value="' . $codigo . '" required>
-        <input type="text" id="codigoTela" name="codigoTela" value="' . $codigo . '" disabled>
-
+        <input type="hidden" id="codigo" name="codigo" value="' . $codigoTurma . '" required>
+        <input type="text" id="codigoTela" name="codigoTela" value="' . $codigoTurma . '" disabled>
+        
         ' . $comboEscola . '
-
+        
         <br>
-
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required value="' . $nome . '">
 
@@ -130,7 +153,6 @@ $sHTML .= '<h2 style="text-align:center;">Formulário de Turma</h2>
                 <input type="date" id="datafim" name="datafim" required value="' . $datafim . '">
             </div>
         </div>
-
         <br>
         <div style="display:flex;justify-content:space-between;">
             <div style="display:flex;flex-direction:column;">

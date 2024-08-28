@@ -1,5 +1,23 @@
 <?php
 
+function getNomeEscola($codigoEscola){    
+    $arDadosEscolas = array();
+    $dadosEscolas = @file_get_contents("../escola/escola.json");
+    if($dadosEscolas){
+        $arDadosEscolas = json_decode($dadosEscolas, true);
+    }
+
+    $nome = "Nome invalido!";
+    //  preencher com php - mais options de ESCOLA
+    foreach($arDadosEscolas as $aDados){
+        if($aDados["codigo"] == $codigoEscola){
+            $nome = $aDados["descricao"];
+        }
+    }
+
+    return $nome;    
+}
+
 function getAcaoExcluirTurma($codigo){
     $sHTML = "<a id='acaoExcluir' href='http://localhost/sistemaescolar/api/turma/cadastrar_turma.php?ACAO=EXCLUIR&codigo=" . $codigo . "'>Excluir</a>";
     return $sHTML;
@@ -47,15 +65,15 @@ foreach($arDadosTurmas as $aDados){
     $htmlTabelaTurmas .= "<tr>";
     $htmlTabelaTurmas .= "<td align='center'>" . $aDados["codigo"] . "</td>";
 
-    $nomeEscola = "ESCOLA TESTES"; // Funcao - Buscar pelo codigo, que nem a cidade em Escola
+    $codigoEscola = $aDados["escola"];
+    $nomeEscola = getNomeEscola($codigoEscola);
 
     $htmlTabelaTurmas .= "<td>" . $nomeEscola . "</td>";
-
     $htmlTabelaTurmas .= "<td>" . $aDados["nome"] . "</td>";
     $htmlTabelaTurmas .= "<td>" . $aDados["datainicio"] . "</td>";
     $htmlTabelaTurmas .= "<td>" . $aDados["datafim"] . "</td>";
-    $htmlTabelaTurmas .= "<td>" . $aDados["status"] . "</td>";
-    $htmlTabelaTurmas .= "<td>" . $aDados["periodo"] . "</td>";
+    $htmlTabelaTurmas .= "<td>" . $aDados["statuscurso"] . "</td>";
+    $htmlTabelaTurmas .= "<td>" . $aDados["periodocurso"] . "</td>";
 
     // Adiciona a ação de excluir aluno
     $codigo = $aDados["codigo"];
