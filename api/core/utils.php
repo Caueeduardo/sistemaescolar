@@ -33,3 +33,34 @@ function processaDadosUtil($pagina){
         header('Location: consulta_' . $pagina . '.php');
     }
 }
+
+function formataData($data){
+    return implode('/', array_reverse(explode('-', $data)));
+
+    echo 'DATA ATUAL: <br>' . $data;
+    // // // CHAMA A FUNCAO JAVASCRIPT
+    // // echo "<script>
+    // //         alert(converteData('2024-08-28'));
+    // //       </script>";
+    // // return 1;
+
+    // Para formato Brasileiro
+    $dataArray = explode('-', $data);
+
+    echo 'DATA ARRAY - 01: ' . json_encode($dataArray);
+    echo 'DATA ARRAY - 02 - reverse: ' . json_encode(array_reverse($dataArray));
+
+    
+    $data_array_reverse = array_reverse($dataArray);
+
+    $dataFinal = implode('/', $data_array_reverse);
+    
+    echo 'DATA FINAL: ' . $dataFinal;
+
+    $dataNova = implode('/', array_reverse(explode('-', $data)));
+
+    // E Passando do formato brasileiro para formato americano:
+    // implode('-', array_reverse(explode('/', $data)));
+
+    return $dataFinal;
+}

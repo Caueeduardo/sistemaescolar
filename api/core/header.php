@@ -1,5 +1,7 @@
 <?php
 
+require_once("utils.php");
+
 $request_uri = $_SERVER['REQUEST_URI'];
 $url_inicial = "";
 $url_inicial_css = "../";
@@ -21,7 +23,7 @@ echo '
           <link rel="stylesheet" href="http://localhost/sistemaescolar/api/css/style.css">
           <link rel="stylesheet" href="http://localhost/sistemaescolar/api/css/button.css">
           <link rel="stylesheet" href="http://localhost/sistemaescolar/api/css/header.css">
-          <script src="http://localhost/sistemaescolar/api/js/api.js" defer async></script>
+          <script src="http://localhost/sistemaescolar/api/js/api.js" defer async></script>          
     </head>
 <body class="background-06">
     <div class="header">

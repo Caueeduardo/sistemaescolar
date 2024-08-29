@@ -67,11 +67,11 @@ foreach($arDadosTurmas as $aDados){
 
     $codigoEscola = $aDados["escola"];
     $nomeEscola = getNomeEscola($codigoEscola);
-
     $htmlTabelaTurmas .= "<td>" . $nomeEscola . "</td>";
+
     $htmlTabelaTurmas .= "<td>" . $aDados["nome"] . "</td>";
-    $htmlTabelaTurmas .= "<td>" . $aDados["datainicio"] . "</td>";
-    $htmlTabelaTurmas .= "<td>" . $aDados["datafim"] . "</td>";
+    $htmlTabelaTurmas .= "<td>" . formataData($aDados["datainicio"]) . "</td>";
+    $htmlTabelaTurmas .= "<td>" . formataData($aDados["datafim"]) . "</td>";
     $htmlTabelaTurmas .= "<td>" . $aDados["statuscurso"] . "</td>";
     $htmlTabelaTurmas .= "<td>" . $aDados["periodocurso"] . "</td>";
 
