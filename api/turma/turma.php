@@ -52,8 +52,8 @@ function getDadosTurma($codigoTurmaAlterar){
             $nome         = $aDados["nome"];
             $datainicio   = $aDados["datainicio"];
             $datafim      = $aDados["datafim"];
-            $statuscurso  = $aDados["statuscurso"];
-            $periodocurso = $aDados["periodocurso"];
+            $status       = $aDados["statuscurso"];
+            $periodo      = $aDados["periodocurso"];
             break;
         }
     }
@@ -110,6 +110,26 @@ if(isset($_GET["ACAO"])){
             $periodo, 
             $encontrouTurma) = getDadosTurma($codigoTurma);
 
+            if($status == "ABERTO"){
+                $selected_status_curso_1 = " selected ";
+            }            
+            if($status == "ANDAMENTO"){
+                $selected_status_curso_2 = " selected ";
+            }
+            if($status == "CONCLUIDO"){
+                $selected_status_curso_3 = " selected ";
+            }
+
+            if($periodo == "Matutino"){
+                $selected_status_periodo_1 = " selected ";
+            }            
+            if($periodo == "Vespertino"){
+                $selected_status_periodo_2 = " selected ";
+            }
+            if($periodo == "Noturno"){
+                $selected_status_periodo_3 = " selected ";
+            }
+
         if($encontrouTurma){
             $codigoEscola = $escola;
 
@@ -154,7 +174,7 @@ $sHTML .= '<h2 style="text-align:center;">Formulário de Turma</h2>
             </div>
         </div>
         <br>
-        <div style="display:flex;justify-content:space-between;">
+        <div style="display:flex;flex-direction:row;justify-content:space-between;">
             <div style="display:flex;flex-direction:column;">
                 <label for="statuscurso">Status da Turma:</label>
                 <select id="statuscurso" name="statuscurso">

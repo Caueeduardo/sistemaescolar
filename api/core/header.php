@@ -23,6 +23,9 @@ echo '
           <link rel="stylesheet" href="http://localhost/sistemaescolar/api/css/style.css">
           <link rel="stylesheet" href="http://localhost/sistemaescolar/api/css/button.css">
           <link rel="stylesheet" href="http://localhost/sistemaescolar/api/css/header.css">
+          
+          <link rel="stylesheet" href="http://localhost/sistemaescolar/api/css/table.css">
+
           <script src="http://localhost/sistemaescolar/api/js/api.js" defer async></script>          
     </head>
 <body class="background-06">
@@ -33,7 +36,7 @@ echo '
             <li><a href="../' . $url_inicial . 'professor/consulta_professor.php">Professor</a></li>
             <li><a href="../' . $url_inicial . 'escola/consulta_escola.php">Escola</a></li>
             <li><a href="../' . $url_inicial . 'turma/consulta_turma.php">Turma</a></li>
-            <li><a href="../' . $url_inicial . 'geradorboletim/index.html">Gerador Boletim</a></li>
+            <li><a href="../' . $url_inicial . 'geradorboletim/index.html">Boletim</a></li>
         </ul>
         <hr>
     </div>
